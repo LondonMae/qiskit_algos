@@ -32,8 +32,10 @@ def DJ(n, f, with_noise = False):
     qc.x(int(n))
     qc.h(int(n))
 
+    qc.barrier()
     # this is where we embed Uf
     qc = qc.compose(f)
+    qc.barrier()
     
     # apply H to upper n qubits
     for i in range(int(n)):
@@ -59,7 +61,6 @@ def DJ(n, f, with_noise = False):
     return qc, output
 
 
-n = 2
 def balanced_function(n):
     f = QuantumCircuit(n+1, 0)
     f.cx(0,n)
@@ -89,7 +90,7 @@ def plot_qubit_scaling():
     plt.show()
 
 # run once
-n = 2
+n = 5
 f = balanced_function(n)
 qc, output = DJ(n, f, with_noise=True)
 plot_histogram(output)
