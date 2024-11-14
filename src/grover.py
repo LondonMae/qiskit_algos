@@ -107,7 +107,7 @@ def all_one_f(n):
 
 def plot_qubit_scaling():
     times = []
-    for i in range(1, 40):
+    for i in range(1, 20):
         t = time.time()
 
         f = all_one_f(i)
@@ -123,7 +123,7 @@ def plot_qubit_scaling():
     plt.show()
 
 # run once
-n = 10
+n = 2
 f = QuantumCircuit(n+1, 0)
 f.x(0)
 f.x(2)
@@ -133,13 +133,13 @@ f.mcx([i for i in range(n)],n)
 f.x(0)
 f.x(2)
 
-qc, output = Grover(n, f, with_noise=False)
-plot_histogram(output)
+qc, output = Grover(n, f, with_noise=True)
+# plot_histogram(output)
 print(output)
 qc.draw("mpl")
 plt.show()
 
-# plot_qubit_scaling()
+plot_qubit_scaling()
 
 
 

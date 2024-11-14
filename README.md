@@ -2,7 +2,9 @@
 ### Running the program 
 call ```DJ(n, f)```, where n is the number of qubits in the circut, and f is the encoding of f(x) as a circuit, Uf.
 ### How to Input f
-The user can encode f as a circuit with n+1 qubits, where n is the length of the input bitstring. Then, pass the circuit as the argument f when calling dj. 
+The user can encode f as a circuit with n+1 qubits, where n is the length of the input bitstring. Then, pass the circuit as the argument f when calling ```DJ```. 
+
+![Image](https://raw.githubusercontent.com/LondonMae/qiskit_algos/main/img/dj_circuit.png)
 ### Understanding the output
 You can run the function with or without noise (ie. ```with_noise=True```). In both cases, DF returns a count map, which maps the output to the number of occurances after 1000 shots through the circuit. In the case with no noise, there is only one element in the count map. The program then plots the counts as a histogram. 
 
@@ -10,8 +12,6 @@ You can run the function with or without noise (ie. ```with_noise=True```). In b
 The following histogram is the result of running the program with a noisy simulator:
 
 ![Image](https://raw.githubusercontent.com/LondonMae/qiskit_algos/main/img/dj_with_noise.png)
-
-note to self: push photos to github and add an absolute path 
 
 ### Change in Execution Time as the Number of Qubits increase
 The graph indicates that simon's scales linearly as the number of qubits increase. This makes sense because the runtime of the DJ algorithm is O(n), which is an exponential speedup from the classicial implementation
